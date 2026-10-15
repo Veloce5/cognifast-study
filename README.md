@@ -1,65 +1,56 @@
-# 🎓 CogniFast Study - Study Companion
+# 🎓 CogniFast Study — AI Study Companion
 
-**Elevator Pitch:** Turn your boring lecture notes into an interactive, AI-powered study partner.
+**An AI-assisted study companion prototype built collaboratively by Dev Joshi and Veer Sanghvi during a two-hour hackathon in November 2025.**
 
-CogniFast Study transforms static PDF lecture notes into dynamic, multimodal study tools in seconds, using the high-speed Groq LPU platform.
+Upload a PDF of your study notes and explore generated quizzes, flashcards, mind maps, audio summaries, and a document-aware AI tutor.
 
----
+**[🚀 Live demo](https://cognifast-study-yryuumj4dcvk9a3o3ebfzz.streamlit.app/) · [🏆 Devpost](https://devpost.com/software/pastify-ai-study-companion) · [🎥 Demo video](https://vimeo.com/1141644051)**
 
-## 💡 How to Use CogniFast Study (Step-by-Step Guide)
+> **Project context:** This is a hackathon prototype developed with substantial AI coding assistance, not a production-ready or independently engineered application. Generated study content may contain mistakes; check important facts against your source material.
 
-CogniFast Study uses a secure, two-page structure to ensure your API key is only entered during configuration.
+## Features
 
-### **Phase 1: Configuration (Home Page)**
+| Tool | What it does |
+| --- | --- |
+| 📝 Interactive Quiz | Generates practice questions with configurable difficulty and quantity |
+| ⚡ Flashcards | Creates flashcards from uploaded notes |
+| 📊 Mind Map | Presents a structured overview of key concepts |
+| 🎧 Audio Summary | Produces a spoken summary |
+| 💬 AI Tutor | Answers questions using the uploaded document as context |
 
-1.  **Access the App:** Open the application's URL (or run `streamlit run app.py` locally). You will see the **Home Page**.
-2.  **Get API Key:** Obtain your API key from [Groq Cloud](https://groq.com/cloud/).
-3.  **Enter Credentials:** In the form under the **"Step 1"** warning:
-    * Paste your **Groq API Key** into the text field.
-    * Click **"Upload PDF Document"** and select your lecture notes or study material.
-4.  **Analyze Document:** Click the large blue button: **`🚀 Analyze Document`**.
-    * The application will enter a loading state and, upon success, automatically navigate you to the **Tools Page**.
+## How to use
 
-### **Phase 2: Studying (Tools Page)**
+1. Open the [live demo](https://cognifast-study-yryuumj4dcvk9a3o3ebfzz.streamlit.app/) or run the app locally.
+2. Enter your own **Groq API key** in the app and upload a PDF containing your notes.
+3. Click **Analyze Document** to process the material and open the study tools.
+4. Choose a tool, such as **Interactive Quiz**, and generate study content.
+5. Use **New Document** to start over with another PDF.
 
-Once on the Tools Page, your API key and original PDF are hidden, and you can access all the interactive tools:
+**Privacy note:** Use notes you are comfortable sending to the services powering the app. Do not upload sensitive personal information or share API keys publicly. Review the app's handling of uploaded content before using it for private documents.
 
-1.  **Select a Tool:** Use the tabs at the top of the screen to switch between:
-    * `📝 Interactive Quiz`
-    * `⚡ Flashcards`
-    * `📊 Mind Map`
-    * `🎧 Audio Summary`
-    * `💬 AI Tutor`
+## Tech stack
 
-2.  **Generate Content (Example: Quiz):**
-    * Go to the **`📝 Interactive Quiz`** tab.
-    * In the **Quiz Configuration** panel (left side), set the **Number of Questions** and **Difficulty**.
-    * Click the **`✨ Generate Quiz`** button. The questions will instantly load into the main panel.
+| Category | Technology |
+| --- | --- |
+| Language | Python |
+| Application UI | Streamlit, custom CSS |
+| AI inference | Groq Cloud API; Llama model |
+| PDF extraction | `pypdf` |
+| Text-to-speech | `gTTS` |
 
-3.  **Use AI Tutor:**
-    * Go to the **`💬 AI Tutor`** tab.
-    * Type a question related to your uploaded document (e.g., "Explain the key concepts of the Von Neumann architecture in simple terms.") into the chat box.
-    * The AI will answer using the document's context.
+## Run locally
 
-4.  **Return Home:** To load a new document or change your API key, click the **`🏠 New Document`** button in the top right corner. This clears all session data (quizzes, chat history) and returns you to the Home Page.
+```bash
+git clone https://github.com/Veloce5/cognifast-study.git
+cd cognifast-study
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+streamlit run app.py
+```
 
----
+On Windows, activate the environment using `.venv\Scripts\activate`. Enter your own API key through the app interface; never commit it to the repository.
 
-## 🛠️ Built With
+## Project background
 
-| Category | Technology | Purpose |
-| :--- | :--- | :--- |
-| **Language** | Python 3 | Core logic and scripting. |
-| **Framework** | Streamlit | Frontend and application interface. |
-| **AI Platform** | Groq Cloud API | Ultra-low latency inference for all generative tasks. |
-| **LLM** | Llama 3.1 8B Instant | Content generation, quiz creation, and tutoring. |
-| **PDF Processing** | `pypdf` | Text extraction from PDF documents. |
-| **Text-to-Speech** | `gTTS` | Audio generation for summaries. |
-| **Styling** | Custom CSS | Custom Neo-Minimal theme. |
-
----
-**To run this project locally:**
-1. Clone the repository.
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the app: `streamlit run app.py`
-4. Enter Groq API Key and upload PDF directly in the browser interface.
+This prototype was created collaboratively with **Veer** during a time-limited hackathon in November 2025. The goal was to explore how a single uploaded document could become several interactive learning experiences. The project relied heavily on AI-assisted development, and remains a prototype intended for demonstration and further learning.
